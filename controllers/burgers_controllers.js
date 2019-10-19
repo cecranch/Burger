@@ -37,7 +37,7 @@ router.post('/add', (req, res) => {
     orm.insertOne(burgerName, function (error, burger) {
         if (error) {
             return res.status(401).json({
-                message: "issue with adding the burger"
+                message: "Burger Error"
             });
         }
 
@@ -57,7 +57,7 @@ router.put('/:id/:value', function (req, res) {
     orm.updateOne(value, id, function (error, burger) {
         if (error) {
             return res.status(501).json({
-                message: "Unable to devour your burger"
+                message: "Try again"
             });
         }
         return res.json({
@@ -73,7 +73,7 @@ router.put('/:id/:value', function (req, res) {
      orm.deleteOne(id, function(err, burger) {
         if (err) {
             return res.status(501).json({
-                message: "Unable to delete burger"
+                message: "Delete error"
             });
         }
 
