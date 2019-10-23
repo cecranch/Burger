@@ -1,25 +1,15 @@
--- Write SQL queries this file that do the following:
--- Create the burgers_db.
--- Switch to or use the burgers_db.
--- Create a burgers table with these fields:
--- id: an auto incrementing int that serves as the primary key.
--- burger_name: a string.
--- devoured: a boolean.
 
-
-  
-DROP DATABASE IF EXISTS burgers_db;
-
-CREATE DATABASE burgers_db;
-
-USE burgers_db; 
-
-select * from burgers;
-
+CREATE DATABASE IF NOT EXISTS burgers_db;
+USE burgers_db;
+-- If the table already exists, remove it before trying to create the table again
+DROP TABLE IF EXISTS burgers;
+-- Create the burgers table
 CREATE TABLE burgers (
-id INTEGER AUTO_INCREMENT NOT NULL,
-burger_name VARCHAR (100) NOT NULL, 
-devoured BOOLEAN,
-
-PRIMARY KEY(id) 
-); 
+   id int NOT NULL AUTO_INCREMENT,
+   burger_name varchar(255) NOT NULL,
+   devoured BOOL DEFAULT false,
+   PRIMARY KEY (id)
+);
+INSERT INTO burgers (burger_name, devoured) VALUES ('Cheese Burger', FALSE);
+INSERT INTO burgers (burger_name, devoured) VALUES ('Hamburger', FALSE);
+INSERT INTO burgers (burger_name, devoured) VALUES ('Pizza Burger', FALSE);

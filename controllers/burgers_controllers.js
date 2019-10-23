@@ -28,8 +28,6 @@ router.get('/all', (req, res) => {
     });
 });
 
-
-
 // POST 
 router.post('/add', (req, res) => {
 
@@ -40,7 +38,6 @@ router.post('/add', (req, res) => {
                 message: "Burger Error"
             });
         }
-
         return res.json({
             burger_name: burgerName,
             id: burger.insertId,
